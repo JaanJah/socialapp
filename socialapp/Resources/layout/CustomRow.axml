@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent" >
+	<LinearLayout
+		android:orientation="horizontal"
+		android:minWidth="25px"
+		android:minHeight="25px"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:id="@+id/linearLayout1"
+		android:background="#ffffffff">
+		<ImageView
+			android:src="@drawable/userIcon"
+			android:layout_width="50dp"
+			android:layout_height="50dp"
+			android:id="@+id/userIcon"/>
+		<TextView
+			android:text="Name"
+			android:textAppearance="?android:attr/textAppearanceLarge"
+			android:layout_width="wrap_content"
+			android:layout_height="match_parent"
+			android:id="@+id/userName"
+			android:textColor="#fff240fd"
+			android:textStyle="bold" />
+	</LinearLayout>
+	<TextView
+		android:text="~~Message~~"
+		android:textAppearance="?android:attr/textAppearanceLarge"
+		android:layout_width="match_parent"
+		android:background="#ffffffff"
+		android:layout_height="wrap_content"
+		android:id="@+id/userMessage" />
+	<LinearLayout
+		android:orientation="horizontal"
+		android:minWidth="25px"
+		android:minHeight="25px"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:background="#ffffffff"
+		android:id="@+id/linearLayout2">
+		<ImageView
+			android:src="@drawable/likeIcon"
+			android:layout_width="50dp"
+			android:layout_height="50dp"
+			android:id="@+id/msgLikeIcon" />
+		<TextView
+			android:text="0 Likes"
+			android:textAppearance="?android:attr/textAppearanceMedium"
+			android:layout_width="wrap_content"
+			android:layout_height="match_parent"
+			android:textColor="#fff240fd"
+			android:id="@+id/msgLikes"
+			android:gravity="center"
+			android:textStyle="italic" />
+		<TextView
+			android:text="0 Comments"
+			android:textAppearance="?android:attr/textAppearanceMedium"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:textAlignment="viewEnd"
+			android:textColor="#fff240fd"
+			android:id="@+id/msgComments"
+			android:gravity="center"
+			android:textStyle="italic" />
+	</LinearLayout>
+</LinearLayout>
