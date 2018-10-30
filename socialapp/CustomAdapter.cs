@@ -47,8 +47,8 @@ namespace socialapp
             view.FindViewById<TextView>(Resource.Id.userMessage).Text = items[position].Message;
             view.FindViewById<TextView>(Resource.Id.msgComments).Text = items[position].Comments + " Comments";
             view.FindViewById<TextView>(Resource.Id.msgLikes).Text = items[position].Likes + " Likes";
-            view.FindViewById<ImageView>(Resource.Id.userIcon);
-            view.FindViewById<ImageView>(Resource.Id.msgLikeIcon);
+            //view.FindViewById<ImageView>(Resource.Id.userIcon);
+            //view.FindViewById<ImageView>(Resource.Id.msgLikeIcon);
 
             return view;
 

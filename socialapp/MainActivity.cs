@@ -28,6 +28,15 @@ namespace socialapp
                     Comments = 5
                 }
             );
+            properties.Add(
+                new Properties
+                {
+                    Message = "Message2",
+                    Owner = "Kert",
+                    Likes = 2,
+                    Comments = 1
+                }
+            );
             list.Adapter = new CustomAdapter(this, properties);
 
         }
