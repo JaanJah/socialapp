@@ -18,7 +18,6 @@ namespace socialapp
         List<Properties> items;
         Activity context;
         ImageView likeButton;
-        List<int> images;
 
         public CustomAdapter(Activity context, List<Properties> items) : base()
         {
