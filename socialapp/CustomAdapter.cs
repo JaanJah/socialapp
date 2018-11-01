@@ -17,7 +17,8 @@ namespace socialapp
     {
         List<Properties> items;
         Activity context;
-
+        ImageView likeButton;
+        List<int> images;
 
         public CustomAdapter(Activity context, List<Properties> items) : base()
         {
@@ -46,11 +47,42 @@ namespace socialapp
             view.FindViewById<TextView>(Resource.Id.userName).Text = items[position].Owner;
             view.FindViewById<TextView>(Resource.Id.userMessage).Text = items[position].Message;
             view.FindViewById<TextView>(Resource.Id.msgComments).Text = items[position].Comments + " Comments";
-            view.FindViewById<TextView>(Resource.Id.msgLikes).Text = items[position].Likes + " Likes";
-            //view.FindViewById<ImageView>(Resource.Id.userIcon);
-            //view.FindViewById<ImageView>(Resource.Id.msgLikeIcon);
+
+            var likes = view.FindViewById<TextView>(Resource.Id.msgLikes);
+            likes.Text = items[position].Likes.ToString() + " Likes";
+
+            likeButton = view.FindViewById<ImageButton>(Resource.Id.msgLikeIcon);
+            likeButton.Click += (sender, e) => LikeButton_Click(position, likes);
+
+            var picture = view.FindViewById<ImageView>(Resource.Id.msgPicture);
+            if (items[position].MessagePicture != "")
+            {
+                picture.SetImageResource(context.Resources.GetIdentifier(items[position].MessagePicture, "drawable", context.PackageName));
+                picture.Visibility = ViewStates.Visible;
+            }
 
             return view;
+            
+        }
+
+        private void LikeButton_Click(int pos, TextView likes)
+        {
+            int curLikes = items[pos].Likes;
+
+            if (items[pos].Liked)
+            {
+                curLikes--;
+            }
+
+            else
+            {
+                curLikes++;
+            }
+
+            items[pos].Liked = !items[pos].Liked;
+            items[pos].Likes = curLikes;
+
+            likes.Text = curLikes + " Likes";
 
         }
     }

@@ -33,6 +33,12 @@
 		android:background="#ffffffff"
 		android:layout_height="wrap_content"
 		android:id="@+id/userMessage" />
+	<ImageView
+		android:src="@drawable/picture1"
+		android:background="@android:color/white"
+		android:layout_width="wrap_content"
+		android:layout_height="200dp"
+		android:id="@+id/msgPicture" />
 	<LinearLayout
 		android:orientation="horizontal"
 		android:minWidth="25px"
@@ -41,11 +47,11 @@
 		android:layout_height="wrap_content"
 		android:background="#ffffffff"
 		android:id="@+id/linearLayout2">
-		<ImageView
-			android:src="@drawable/likeIcon"
+		<ImageButton
+			android:background="@drawable/likeIcon"
 			android:layout_width="50dp"
 			android:layout_height="50dp"
-			android:id="@+id/msgLikeIcon" />
+			android:id="@+id/msgLikeIcon"  />
 		<TextView
 			android:text="0 Likes"
 			android:textAppearance="?android:attr/textAppearanceMedium"

@@ -18,14 +18,17 @@ namespace socialapp
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.activity_main);
             list = FindViewById<ListView>(Resource.Id.listView1);
+
             properties = new List<Properties>();
+            //New post.
             properties.Add(
                 new Properties
                 {
                     Message = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vitae sem nibh. Aliquam in ornare tellus. Aenean vel luctus metus. Fusce turpis est, euismod at hendrerit at, mollis rhoncus sem. Morbi mauris odio, fermentum non massa et, semper consectetur enim. Nulla ornare a urna pellentesque aliquam. In accumsan arcu vitae turpis malesuada, vel molestie est venenatis.",
                     Owner = "Jaan Markus",
                     Likes = 5,
-                    Comments = 5
+                    Comments = 5,
+                    MessagePicture = "picture1"
                 }
             );
             properties.Add(
@@ -34,11 +37,22 @@ namespace socialapp
                     Message = "Message2",
                     Owner = "Kert",
                     Likes = 2,
-                    Comments = 1
+                    Comments = 1,
+                    MessagePicture = "picture2"
                 }
             );
+            properties.Add(
+                new Properties
+                {
+                    Message = "I love fortnite OMGGGG",
+                    Owner = "Virko // MemeKing69",
+                    Likes = 1337,
+                    Comments = 420,
+                    MessagePicture = "fortnitedance"
+                }
+);
+            List<int> images = new List<int>();
             list.Adapter = new CustomAdapter(this, properties);
-
         }
     }
 }
