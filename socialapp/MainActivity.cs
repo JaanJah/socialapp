@@ -4,6 +4,7 @@ using Android.Support.V7.App;
 using Android.Runtime;
 using Android.Widget;
 using System.Collections.Generic;
+using Android.Content;
 
 namespace socialapp
 {
@@ -12,13 +13,14 @@ namespace socialapp
     {
         ListView list;
         List<Properties> properties;
+        TextView comments;
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.activity_main);
             list = FindViewById<ListView>(Resource.Id.listView1);
-
+            comments = FindViewById<TextView>(Resource.Id.msgComments);
             properties = new List<Properties>
             {
                 //New post.
@@ -48,7 +50,14 @@ namespace socialapp
                 }
             };
             List<int> images = new List<int>();
+            comments.Click += Comments_Click;
             list.Adapter = new CustomAdapter(this, properties);
+        }
+
+        private void Comments_Click(object sender, System.EventArgs e)
+        {
+            var commentsActivity = new Intent(this, typeof(CommentsActivity));
+            StartActivity(commentsActivity);
         }
     }
 }

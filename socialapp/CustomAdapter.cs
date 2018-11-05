@@ -53,7 +53,9 @@ namespace socialapp
             likeButton = view.FindViewById<ImageButton>(Resource.Id.msgLikeIcon);
             likeButton.Click += (sender, e) => LikeButton_Click(position, likes);
 
+            
             var picture = view.FindViewById<ImageView>(Resource.Id.msgPicture);
+            picture.Visibility = ViewStates.Gone;
             if (items[position].MessagePicture != "")
             {
                 picture.SetImageResource(context.Resources.GetIdentifier(items[position].MessagePicture, "drawable", context.PackageName));
@@ -70,11 +72,13 @@ namespace socialapp
 
             if (items[pos].Liked)
             {
+                likeButton.SetBackgroundResource(Resource.Drawable.likedIcon);
                 curLikes--;
             }
 
             else
             {
+                likeButton.SetBackgroundResource(Resource.Drawable.likeIcon);
                 curLikes++;
             }
 

@@ -21,6 +21,5 @@ namespace socialapp
         public int Comments { get; set; }
         public string Date { get; set; } = " ";
         public string MessagePicture { get; set; } = " ";
-
     }
 }
