@@ -56,6 +56,7 @@
     <Reference Include="Mono.Android" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CommentProperties.cs" />
     <Compile Include="CommentsActivity.cs" />
     <Compile Include="CommentsAdapter.cs" />
     <Compile Include="CustomAdapter.cs" />

@@ -40,9 +40,11 @@ namespace socialapp
         public override View GetView(int position, View convertView, ViewGroup parent)
         {
             View view = convertView;
-            if (view == null)
-                view = context.LayoutInflater.Inflate(Resource.Layout.CustomRow, null);
 
+            if (view == null)
+            {
+                view = context.LayoutInflater.Inflate(Resource.Layout.CustomRow, null);
+            }
             view.FindViewById<TextView>(Resource.Id.userName).Text = items[position].Owner;
             view.FindViewById<TextView>(Resource.Id.userMessage).Text = items[position].Message;
             view.FindViewById<TextView>(Resource.Id.msgComments).Text = items[position].Comments + " Comments";
@@ -51,9 +53,10 @@ namespace socialapp
             likes.Text = items[position].Likes.ToString() + " Likes";
 
             likeButton = view.FindViewById<ImageButton>(Resource.Id.msgLikeIcon);
+
             likeButton.Click += (sender, e) => LikeButton_Click(position, likes);
 
-            
+
             var picture = view.FindViewById<ImageView>(Resource.Id.msgPicture);
             picture.Visibility = ViewStates.Gone;
             if (items[position].MessagePicture != "")
@@ -63,7 +66,7 @@ namespace socialapp
             }
 
             return view;
-            
+
         }
 
         private void LikeButton_Click(int pos, TextView likes)
