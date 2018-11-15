@@ -48,17 +48,12 @@ namespace socialapp
             view.FindViewById<TextView>(Resource.Id.userName).Text = items[position].Owner;
             view.FindViewById<TextView>(Resource.Id.userMessage).Text = items[position].Message;
             view.FindViewById<TextView>(Resource.Id.msgComments).Text = items[position].Comments + " Comments";
-
             var likes = view.FindViewById<TextView>(Resource.Id.msgLikes);
-
-
             likes.Text = items[position].Likes.ToString() + " Likes";
             likeButton = view.FindViewById<ImageButton>(Resource.Id.msgLikeIcon);
             likeButton.Tag = position;
             likeButton.Click -= LikeButton_Click;
             likeButton.Click += LikeButton_Click;
-
-
             var picture = view.FindViewById<ImageView>(Resource.Id.msgPicture);
             picture.Visibility = ViewStates.Gone;
             if (items[position].MessagePicture != "")

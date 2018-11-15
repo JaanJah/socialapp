@@ -58,7 +58,6 @@
   <ItemGroup>
     <Compile Include="CommentProperties.cs" />
     <Compile Include="CommentsActivity.cs" />
-    <Compile Include="CommentsAdapter.cs" />
     <Compile Include="CustomAdapter.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Properties.cs" />
