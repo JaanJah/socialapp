@@ -50,11 +50,13 @@ namespace socialapp
             view.FindViewById<TextView>(Resource.Id.msgComments).Text = items[position].Comments + " Comments";
 
             var likes = view.FindViewById<TextView>(Resource.Id.msgLikes);
+
+
             likes.Text = items[position].Likes.ToString() + " Likes";
-
             likeButton = view.FindViewById<ImageButton>(Resource.Id.msgLikeIcon);
-
-            likeButton.Click += (sender, e) => LikeButton_Click(position, likes);
+            likeButton.Tag = position;
+            likeButton.Click -= LikeButton_Click;
+            likeButton.Click += LikeButton_Click;
 
 
             var picture = view.FindViewById<ImageView>(Resource.Id.msgPicture);
@@ -69,27 +71,25 @@ namespace socialapp
 
         }
 
-        private void LikeButton_Click(int pos, TextView likes)
+        private void LikeButton_Click(object sender, EventArgs e)
         {
+            var likeBtn = (ImageButton)sender;
+            //var pos = (int)likeButton.Tag;
+            var pos = (int)likeBtn.Tag;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
             int curLikes = items[pos].Likes;
-
             if (items[pos].Liked)
             {
-                likeButton.SetBackgroundResource(Resource.Drawable.likedIcon);
+                //items[pos].Likes--;
                 curLikes--;
             }
-
-            else
+            else if (!items[pos].Liked)
             {
-                likeButton.SetBackgroundResource(Resource.Drawable.likeIcon);
+                //items[pos].Likes++;
                 curLikes++;
             }
-
-            items[pos].Liked = !items[pos].Liked;
-            items[pos].Likes = curLikes;
-
+            var likes = context.FindViewById<TextView>(Resource.Id.msgLikes);
             likes.Text = curLikes + " Likes";
 
         }
     }
-}
+}               

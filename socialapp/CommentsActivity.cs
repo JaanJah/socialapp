@@ -20,7 +20,7 @@ namespace socialapp
         {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.CommentsActivity);
-            submitBtn = FindViewById<Button>(Resource.Id.submitBtn);
+            submitBtn = FindViewById<Button>(Resource.Id.commentSubmitBtn);
             // Create your application here
         }
     }
