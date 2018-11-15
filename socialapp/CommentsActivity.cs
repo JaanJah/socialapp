@@ -15,12 +15,14 @@ namespace socialapp
     [Activity(Label = "CommentsActivity")]
     public class CommentsActivity : Activity
     {
-        Button submitBtn;
+        Button cmtSubmitBtn;
+        ListView cmtList;
+        EditText cmtInputText;
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.CommentsActivity);
-            submitBtn = FindViewById<Button>(Resource.Id.commentSubmitBtn);
+            cmtSubmitBtn = FindViewById<Button>(Resource.Id.commentSubmitBtn);
             // Create your application here
         }
     }

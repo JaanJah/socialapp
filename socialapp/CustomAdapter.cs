@@ -45,6 +45,7 @@ namespace socialapp
             {
                 view = context.LayoutInflater.Inflate(Resource.Layout.CustomRow, null);
             }
+            //MainActivity stuff
             view.FindViewById<TextView>(Resource.Id.userName).Text = items[position].Owner;
             view.FindViewById<TextView>(Resource.Id.userMessage).Text = items[position].Message;
             view.FindViewById<TextView>(Resource.Id.msgComments).Text = items[position].Comments + " Comments";
@@ -61,6 +62,9 @@ namespace socialapp
                 picture.SetImageResource(context.Resources.GetIdentifier(items[position].MessagePicture, "drawable", context.PackageName));
                 picture.Visibility = ViewStates.Visible;
             }
+            //Comments
+            
+
 
             return view;
 
@@ -74,10 +78,9 @@ namespace socialapp
             int curLikes = items[pos].Likes;
             if (items[pos].Liked)
             {
-                //items[pos].Likes--;
                 curLikes--;
             }
-            else if (!items[pos].Liked)
+            else
             {
                 //items[pos].Likes++;
                 curLikes++;
