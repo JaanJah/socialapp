@@ -2612,26 +2612,26 @@ namespace socialapp
 			// aapt resource value: 0x7f080097
 			public const int linearLayout2 = 2131230871;
 			
-			// aapt resource value: 0x7f08008c
-			public const int linearLayout3 = 2131230860;
+			// aapt resource value: 0x7f08008b
+			public const int linearLayout3 = 2131230859;
 			
-			// aapt resource value: 0x7f08008d
-			public const int linearLayout4 = 2131230861;
+			// aapt resource value: 0x7f08008c
+			public const int linearLayout4 = 2131230860;
 			
 			// aapt resource value: 0x7f08001d
 			public const int listMode = 2131230749;
 			
-			// aapt resource value: 0x7f08008b
-			public const int listView1 = 2131230859;
+			// aapt resource value: 0x7f08008f
+			public const int listView1 = 2131230863;
 			
 			// aapt resource value: 0x7f080061
 			public const int list_item = 2131230817;
 			
-			// aapt resource value: 0x7f08008e
-			public const int mainInputText = 2131230862;
+			// aapt resource value: 0x7f08008d
+			public const int mainInputText = 2131230861;
 			
-			// aapt resource value: 0x7f08008f
-			public const int mainSubmitBtn = 2131230863;
+			// aapt resource value: 0x7f08008e
+			public const int mainSubmitBtn = 2131230862;
 			
 			// aapt resource value: 0x7f0800c0
 			public const int masked = 2131230912;

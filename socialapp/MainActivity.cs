@@ -13,6 +13,9 @@ namespace socialapp
     {
         ListView list;
         List<Properties> properties;
+
+        EditText inputText;
+        Button addPostBtn;
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -47,9 +50,26 @@ namespace socialapp
                     MessagePicture = "fortnitedance"
                 },
             };
-            List<int> images = new List<int>();
             list.Adapter = new CustomAdapter(this, properties);
+
+            inputText = FindViewById<EditText>(Resource.Id.mainInputText);
+            addPostBtn = FindViewById<Button>(Resource.Id.mainSubmitBtn);
+
+            addPostBtn.Click += AddPostBtn_Click;
         }
 
+        private void AddPostBtn_Click(object sender, System.EventArgs e)
+        {
+            properties.Add(new Properties
+            {
+                Owner = "User",
+                Message = inputText.Text,
+                Likes = 0,
+                Comments = 0,
+                MessagePicture = ""
+            });
+            inputText.Text = "";
+            list.Adapter = new CustomAdapter(this, properties);
+        }
     }
 }
