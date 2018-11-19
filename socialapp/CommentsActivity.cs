@@ -23,6 +23,8 @@ namespace socialapp
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.CommentsActivity);
             cmtSubmitBtn = FindViewById<Button>(Resource.Id.commentSubmitBtn);
+            cmtList = FindViewById<ListView>(Resource.Id.commentsListView);
+            cmtInputText = FindViewById<EditText>(Resource.Id.commentInputText);
             // Create your application here
         }
     }

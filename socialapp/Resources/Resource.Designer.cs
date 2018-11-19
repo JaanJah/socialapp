@@ -2477,14 +2477,14 @@ namespace socialapp
 			// aapt resource value: 0x7f080039
 			public const int collapseActionView = 2131230777;
 			
+			// aapt resource value: 0x7f080091
+			public const int commentInputText = 2131230865;
+			
 			// aapt resource value: 0x7f080092
-			public const int commentInputText = 2131230866;
+			public const int commentSubmitBtn = 2131230866;
 			
 			// aapt resource value: 0x7f080093
-			public const int commentSubmitBtn = 2131230867;
-			
-			// aapt resource value: 0x7f080090
-			public const int commentsListView = 2131230864;
+			public const int commentsListView = 2131230867;
 			
 			// aapt resource value: 0x7f08009f
 			public const int container = 2131230879;
@@ -2606,8 +2606,8 @@ namespace socialapp
 			// aapt resource value: 0x7f080018
 			public const int line3 = 2131230744;
 			
-			// aapt resource value: 0x7f080091
-			public const int linearLayout1 = 2131230865;
+			// aapt resource value: 0x7f080090
+			public const int linearLayout1 = 2131230864;
 			
 			// aapt resource value: 0x7f080097
 			public const int linearLayout2 = 2131230871;
