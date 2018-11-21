@@ -21,9 +21,12 @@
 			android:layout_height="wrap_content"
 			android:id="@+id/linearLayout4">
 			<android.support.design.widget.TextInputEditText
-				android:layout_width="150dp"
-				android:inputType="text"
+				android:minWidth="550px"
+				android:maxWidth="550px"
+				android:maxHeight="350px"
+				android:layout_width="wrap_content"
 				android:layout_height="match_parent"
+				android:inputType="text"
 				android:id="@+id/mainInputText" />
 			<Button
 				android:text="Lisa postitus"

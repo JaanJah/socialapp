@@ -15,13 +15,13 @@
 			android:src="@drawable/userIcon"
 			android:layout_width="50dp"
 			android:layout_height="50dp"
-			android:id="@+id/userIcon"/>
+			android:id="@+id/cUserIcon"/>
 		<TextView
 			android:text="Name"
 			android:textAppearance="?android:attr/textAppearanceLarge"
 			android:layout_width="wrap_content"
 			android:layout_height="match_parent"
-			android:id="@+id/userName"
+			android:id="@+id/cUserName"
 			android:textColor="#fff240fd"
 			android:textStyle="bold" />
 	</LinearLayout>
@@ -31,7 +31,7 @@
 		android:layout_width="match_parent"
 		android:background="#ffffffff"
 		android:layout_height="wrap_content"
-		android:id="@+id/userCommentMsg" />
+		android:id="@+id/cUserCommentMsg" />
 	<LinearLayout
 		android:orientation="horizontal"
 		android:minWidth="25px"
@@ -44,14 +44,14 @@
 			android:background="@drawable/likeIcon"
 			android:layout_width="50dp"
 			android:layout_height="50dp"
-			android:id="@+id/msgLikeIcon"  />
+			android:id="@+id/cMsgLikeIcon"  />
 		<TextView
 			android:text="0 Likes"
 			android:textAppearance="?android:attr/textAppearanceMedium"
 			android:layout_width="wrap_content"
 			android:layout_height="match_parent"
 			android:textColor="#fff240fd"
-			android:id="@+id/msgLikes"
+			android:id="@+id/cMsgLikes"
 			android:gravity="center"
 			android:textStyle="italic" />
 	</LinearLayout>

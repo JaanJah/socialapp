@@ -12,12 +12,12 @@ using Android.Widget;
 
 namespace socialapp
 {
-    class CommentProperties
+    public class CommentProperties
     {
         public string Message { get; set; } = " ";
         public string Owner { get; set; } = " ";
         public int Likes { get; set; }
-        public bool Liked { get; set; } = false;
+        public bool IsLiked { get; set; } = false;
         public string Date { get; set; } = " ";
     }
 }

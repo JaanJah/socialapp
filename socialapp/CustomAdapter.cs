@@ -10,6 +10,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Java.Lang;
+using Newtonsoft.Json;
 
 namespace socialapp
 {
@@ -18,6 +19,7 @@ namespace socialapp
         List<Properties> items;
         Activity context;
         ImageButton likeBtn;
+        TextView comments;
 
         public CustomAdapter(Activity context, List<Properties> items) : base()
         {
@@ -30,7 +32,10 @@ namespace socialapp
             get { return items[position]; }
         }
 
-        public override int Count { get { return items.Count; } }
+        public override int Count
+        {
+            get { return items.Count; }
+        }
 
         public override long GetItemId(int position)
         {
@@ -50,7 +55,9 @@ namespace socialapp
             //User's Message
             view.FindViewById<TextView>(Resource.Id.userMessage).Text = items[position].Message;
             //Post's comment amount
-            view.FindViewById<TextView>(Resource.Id.msgComments).Text = items[position].Comments + " Comments";
+            TextView comments = view.FindViewById<TextView>(Resource.Id.msgComments);
+            comments.Text = items[position].Comments.Count + " Comments";
+            //comments.Visibility = ViewStates.Gone
             //Post's picture
             var picture = view.FindViewById<ImageView>(Resource.Id.msgPicture);
             if (items[position].MessagePicture != "")
@@ -65,7 +72,25 @@ namespace socialapp
             likeBtn.Tag = position;
             likeBtn.Click -= LikeBtn_Click;
             likeBtn.Click += LikeBtn_Click;
+
+            //Comments
+            comments = view.FindViewById<TextView>(Resource.Id.msgComments);
+            comments.Tag = position;
+            comments.Click -= Comments_Click;
+            comments.Click += Comments_Click;
+
             return view;
+        }
+
+        private void Comments_Click(object sender, EventArgs e)
+        {
+            var commentsClicked = (TextView)sender;
+            int position = (int)commentsClicked.Tag;
+
+            Intent commentsActivity = new Intent(context, typeof(CommentsActivity));
+            commentsActivity.PutExtra("Comments", JsonConvert.SerializeObject(items[position].Comments));
+            commentsActivity.PutExtra("MessagePosition", position);
+            context.StartActivity(commentsActivity);
         }
 
         private void LikeBtn_Click(object sender, EventArgs e)
@@ -82,10 +107,10 @@ namespace socialapp
                 items[position].Likes--;
             }
 
-            MainActivity.properties[position].Likes = items[position].Likes;
+            MainActivity.posts[position].Likes = items[position].Likes;
             items[position].IsLiked = !items[position].IsLiked;
 
-            MainActivity.properties[position].IsLiked = items[position].IsLiked;
+            MainActivity.posts[position].IsLiked = items[position].IsLiked;
             NotifyDataSetChanged();
         }
     }

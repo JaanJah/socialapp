@@ -18,7 +18,7 @@ namespace socialapp
         public string Owner { get; set; } = " ";
         public int Likes { get; set; }
         public bool IsLiked { get; set; } = false;
-        public int Comments { get; set; }
+        public List<CommentProperties> Comments { get; set; }
         public string Date { get; set; } = " ";
         public string MessagePicture { get; set; } = " ";
     }

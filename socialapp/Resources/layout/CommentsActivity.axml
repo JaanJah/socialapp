@@ -13,24 +13,24 @@
 		android:layout_height="wrap_content"
 		android:id="@+id/linearLayout1">
 		<android.support.design.widget.TextInputEditText
-			android:minWidth="600px"
-			android:maxWidth="600px"
+			android:minWidth="500px"
+			android:maxWidth="500px"
 			android:maxHeight="350px"
 			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
+			android:layout_height="match_parent"
 			android:layout_weight="0"
-			android:id="@+id/commentInputText" />
+			android:id="@+id/cmtInputText" />
 		<Button
-			android:text="Submit"
+			android:text="Lisa kommentaar"
 			android:layout_width="wrap_content"
 			android:layout_height="match_parent"
-			android:id="@+id/commentSubmitBtn" />
+			android:id="@+id/cmtSubmitBtn" />
 	</LinearLayout>
 	<ListView
 		android:minWidth="25px"
 		android:minHeight="25px"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:id="@+id/commentsListView" />
+		android:id="@+id/cmtListView" />
 
 </LinearLayout>

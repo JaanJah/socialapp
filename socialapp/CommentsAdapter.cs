@@ -16,12 +16,14 @@ namespace socialapp
     {
         List<CommentProperties> items;
         Activity context;
-        ImageView likeButton;
-
-        public CommentsAdapter(Activity context, List<CommentProperties> items) : base()
+        ImageButton likeBtn;
+        //postPosition = messagePosition
+        int postPosition;
+        public CommentsAdapter(Activity context, List<CommentProperties> items, int postPosition) : base()
         {
             this.context = context;
             this.items = items;
+            this.postPosition = postPosition;
         }
 
         public override CommentProperties this[int position]
@@ -45,13 +47,38 @@ namespace socialapp
                 view = context.LayoutInflater.Inflate(Resource.Layout.CommentsRow, null);
             }
 
-            view.FindViewById<ImageView>(Resource.Id.userIcon);
-            view.FindViewById<TextView>(Resource.Id.userName);
-            view.FindViewById<TextView>(Resource.Id.userCommentMsg);
-            view.FindViewById<ImageView>(Resource.Id.msgLikeIcon);
-            view.FindViewById<TextView>(Resource.Id.msgComments);
+            view.FindViewById<ImageView>(Resource.Id.cUserIcon);
+            view.FindViewById<TextView>(Resource.Id.cUserName).Text = items[position].Owner;
+            view.FindViewById<TextView>(Resource.Id.cUserCommentMsg).Text = items[position].Message;
+            view.FindViewById<TextView>(Resource.Id.cMsgLikes);
+
+            likeBtn = view.FindViewById<ImageButton>(Resource.Id.cMsgLikeIcon);
+            likeBtn.Tag = position;
+            likeBtn.Click -= LikeBtn_Click;
+            likeBtn.Click += LikeBtn_Click;
             return view;
 
+        }
+
+        private void LikeBtn_Click(object sender, EventArgs e)
+        {
+            var likeBtnClicked = (ImageButton)sender;
+            int position = (int)likeBtnClicked.Tag;
+
+            if (!items[position].IsLiked)
+            {
+                items[position].Likes++;
+            }
+            else
+            {
+                items[position].Likes--;
+            }
+
+            MainActivity.posts[postPosition].Likes = items[position].Likes;
+            items[position].IsLiked = !items[position].IsLiked;
+
+            MainActivity.posts[postPosition].IsLiked = items[position].IsLiked;
+            NotifyDataSetChanged();
         }
     }
 }
