@@ -17,7 +17,7 @@ namespace socialapp
     {
         List<Properties> items;
         Activity context;
-        ImageView likeButton;
+        ImageButton likeBtn;
 
         public CustomAdapter(Activity context, List<Properties> items) : base()
         {
@@ -45,49 +45,48 @@ namespace socialapp
             {
                 view = context.LayoutInflater.Inflate(Resource.Layout.CustomRow, null);
             }
-            //MainActivity stuff
+            //Username
             view.FindViewById<TextView>(Resource.Id.userName).Text = items[position].Owner;
+            //User's Message
             view.FindViewById<TextView>(Resource.Id.userMessage).Text = items[position].Message;
+            //Post's comment amount
             view.FindViewById<TextView>(Resource.Id.msgComments).Text = items[position].Comments + " Comments";
-            var likes = view.FindViewById<TextView>(Resource.Id.msgLikes);
-            likes.Text = items[position].Likes.ToString() + " Likes";
-            likeButton = view.FindViewById<ImageButton>(Resource.Id.msgLikeIcon);
-            likeButton.Tag = position;
-            likeButton.Click -= LikeButton_Click;
-            likeButton.Click += LikeButton_Click;
+            //Post's picture
             var picture = view.FindViewById<ImageView>(Resource.Id.msgPicture);
-            picture.Visibility = ViewStates.Gone;
             if (items[position].MessagePicture != "")
             {
                 picture.SetImageResource(context.Resources.GetIdentifier(items[position].MessagePicture, "drawable", context.PackageName));
                 picture.Visibility = ViewStates.Visible;
             }
-            //Comments
-            
-
-
+            //Post's likes amount
+            view.FindViewById<TextView>(Resource.Id.msgLikes).Text = items[position].Likes + " Likes";
+            //Like button
+            likeBtn = view.FindViewById<ImageButton>(Resource.Id.msgLikeIcon);
+            likeBtn.Tag = position;
+            likeBtn.Click -= LikeBtn_Click;
+            likeBtn.Click += LikeBtn_Click;
             return view;
-
         }
 
-        private void LikeButton_Click(object sender, EventArgs e)
+        private void LikeBtn_Click(object sender, EventArgs e)
         {
-            var likeBtn = (ImageButton)sender;
-            //var pos = (int)likeButton.Tag;
-            var pos = (int)likeBtn.Tag;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
-            int curLikes = items[pos].Likes;
-            if (items[pos].Liked)
+            var likeBtnClicked = (ImageButton)sender;
+            int position = (int)likeBtnClicked.Tag;
+
+            if (!items[position].IsLiked)
             {
-                curLikes--;
+                items[position].Likes++;
             }
             else
             {
-                //items[pos].Likes++;
-                curLikes++;
+                items[position].Likes--;
             }
-            var likes = context.FindViewById<TextView>(Resource.Id.msgLikes);
-            likes.Text = curLikes + " Likes";
 
+            MainActivity.properties[position].Likes = items[position].Likes;
+            items[position].IsLiked = !items[position].IsLiked;
+
+            MainActivity.properties[position].IsLiked = items[position].IsLiked;
+            NotifyDataSetChanged();
         }
     }
 }               
