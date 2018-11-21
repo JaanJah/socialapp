@@ -50,7 +50,7 @@ namespace socialapp
                 Likes = 0
             });
             cmtInputText.Text = "";
-            cmtList.Adapter = new CommentsAdapter(this, comments, position);
+            cmtList.Adapter = new CommentsAdapter(this, MainActivity.posts[position].Comments, position);
         }
     }
 }

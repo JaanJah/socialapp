@@ -29,10 +29,33 @@ namespace socialapp
             //Define fields
             inputText = FindViewById<EditText>(Resource.Id.mainInputText);
             addPostBtn = FindViewById<Button>(Resource.Id.mainSubmitBtn);
+            if (posts == null)
+            {
+                DefaultPosts();
+            }
+            //Define lists adapter
+            list.Adapter = new CustomAdapter(this, posts);
+            addPostBtn.Click += AddPostBtn_Click;
+        }
 
-            //Add default posts
-            var posts = new List<Properties>();
-            var comments = new List<CommentProperties>();
+        private void AddPostBtn_Click(object sender, System.EventArgs e)
+        {
+            posts.Add(new Properties
+            {
+                Owner = "User",
+                Message = inputText.Text,
+                Likes = 0,
+                Comments = new List<CommentProperties>(),
+                MessagePicture = ""
+            });
+            inputText.Text = "";
+            list.Adapter = new CustomAdapter(this, posts);
+        }
+
+        private void DefaultPosts()
+        {
+            posts = new List<Properties>();
+            comments = new List<CommentProperties>();
             var post = new Properties
             {
                 Message = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vitae sem nibh. Aliquam in ornare tellus. Aenean vel luctus metus. Fusce turpis est, euismod at hendrerit at, mollis rhoncus sem. Morbi mauris odio, fermentum non massa et, semper consectetur enim. Nulla ornare a urna pellentesque aliquam. In accumsan arcu vitae turpis malesuada, vel molestie est venenatis.",
@@ -83,23 +106,6 @@ namespace socialapp
                 Likes = 2
             };
             comments.Add(comment);
-            //Define lists adapter
-            list.Adapter = new CustomAdapter(this, posts);
-            addPostBtn.Click += AddPostBtn_Click;
-        }
-
-        private void AddPostBtn_Click(object sender, System.EventArgs e)
-        {
-            posts.Add(new Properties
-            {
-                Owner = "User",
-                Message = inputText.Text,
-                Likes = 0,
-                Comments = new List<CommentProperties>(),
-                MessagePicture = ""
-            });
-            inputText.Text = "";
-            list.Adapter = new CustomAdapter(this, posts);
         }
     }
 }
