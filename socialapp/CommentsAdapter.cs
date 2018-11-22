@@ -50,7 +50,7 @@ namespace socialapp
             view.FindViewById<ImageView>(Resource.Id.cUserIcon);
             view.FindViewById<TextView>(Resource.Id.cUserName).Text = items[position].Owner;
             view.FindViewById<TextView>(Resource.Id.cUserCommentMsg).Text = items[position].Message;
-            view.FindViewById<TextView>(Resource.Id.cMsgLikes);
+            view.FindViewById<TextView>(Resource.Id.cMsgLikes).Text = items[position].Likes + " Likes";
 
             likeBtn = view.FindViewById<ImageButton>(Resource.Id.cMsgLikeIcon);
             likeBtn.Tag = position;
